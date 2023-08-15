@@ -31,7 +31,7 @@ class NovelsController < ApplicationController
         url =  @novel.doc_asset.url
         raw = URI.open(url).read
         docx = Docx::Document.open(raw)
-        doc.paragraphs.each do |p|
+        docx.paragraphs.each do |p|
           raise
         end
         format.html { redirect_to novel_url(@novel), notice: "Novel was successfully created." }
